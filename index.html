@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f3e9" />
+  <title>Nibble | Good food, good mood</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#home" aria-label="Nibble home">
+      <span class="brand-mark">n</span> nibble<span class="wordmark-dot">.</span>
+    </a>
+
+    <nav class="topnav" aria-label="Main navigation">
+      <a href="#how-it-works">How it works</a>
+      <a href="#favorites">Local favorites</a>
+    </nav>
+
+    <a class="nav-order" href="#restaurants">Order now <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=2000&q=85" aria-label="Fresh food being prepared">
+        <source src="https://videos.pexels.com/video-files/4253287/4253287-hd_1920_1080_25fps.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-shade"></div>
+
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> YOUR NEIGHBORHOOD, SERVED</p>
+        <h1>Good food.<br /><em>Good mood.</em></h1>
+        <p class="hero-description">The little places you love, and the dishes you can't stop thinking about. Delivered while it's still lovely.</p>
+        <a class="primary-cta" href="#restaurants">Order now <span aria-hidden="true">↗</span></a>
+        <div class="hero-note"><span></span> From local kitchens to your door</div>
+      </div>
+
+      <div class="hero-caption"><span>01 / FRESHLY MADE</span><span>GOOD THINGS ARE ON THE WAY</span></div>
+      <div class="hero-stamp" aria-hidden="true"><span>made with</span><strong>♥</strong><span>around here</span></div>
+    </section>
+
+    <section class="category-band" id="favorites">
+      <div class="section-intro">
+        <p class="eyebrow dark-eyebrow">A LITTLE SOMETHING FOR EVERYONE</p>
+        <h2>What sounds <em>good?</em></h2>
+      </div>
+
+      <div class="category-list" aria-label="Popular cuisines">
+        <a class="category-item" href="#restaurants?cuisine=Pizza"><span>🍕</span>Pizza night</a>
+        <a class="category-item" href="#restaurants?cuisine=Indian"><span>🍛</span>Big on spice</a>
+        <a class="category-item" href="#restaurants?cuisine=Burgers"><span>🍔</span>Good burgers</a>
+        <a class="category-item" href="#restaurants?cuisine=Asian"><span>🥢</span>Asian cravings</a>
+        <a class="category-item" href="#restaurants?cuisine=Desserts"><span>🍰</span>Save room</a>
+      </div>
+    </section>
+
+    <section class="story-section" id="how-it-works">
+      <div class="story-photo" role="img" aria-label="A table full of colorful dishes"></div>
+      <div class="story-copy">
+        <p class="eyebrow dark-eyebrow">THE GOOD STUFF, CLOSE BY</p>
+        <h2>Made by people<br />who <em>care.</em></h2>
+        <p>From the neighborhood noodle spot to that bakery with the impossible croissants, meet the independent kitchens making your corner of town taste better.</p>
+        <a class="text-link" href="#restaurants">Meet your local favorites <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="story-index">Nº 01 <span>—</span> ALWAYS LOCAL</div>
+    </section>
+
+    <section class="restaurant-section" id="restaurants">
+      <div class="catalog-heading">
+        <div>
+          <p class="eyebrow"><span></span> THE NEIGHBORHOOD MENU</p>
+          <h1>Find your <em>delicious.</em></h1>
+          <p class="heading-note">A few very good ideas, made fresh around the corner.</p>
+        </div>
+        <div class="heading-aside"><span class="open-dot"></span> 10 kitchens ready to cook</div>
+      </div>
+
+      <div class="discovery-bar" aria-label="Find restaurants">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="restaurant-search" type="search" placeholder="Dishes, restaurants, cuisines" autocomplete="off" />
+          <kbd>⌘ K</kbd>
+        </label>
+
+        <label class="sort-control">
+          <span>Sort by</span>
+          <select id="sort-select" aria-label="Sort restaurants">
+            <option value="recommended">Recommended</option>
+            <option value="rating">Top rated</option>
+            <option value="delivery">Fastest delivery</option>
+          </select>
+        </label>
+      </div>
+
+      <nav class="cuisine-filter" id="cuisine-filter" aria-label="Filter by cuisine"></nav>
+
+      <div class="list-heading">
+        <div>
+          <p class="eyebrow muted-eyebrow">PICKED FOR YOU</p>
+          <h2>All the good places <span id="results-count"></span></h2>
+        </div>
+        <span class="list-note">Tap a kitchen to see the menu <span aria-hidden="true">↘</span></span>
+      </div>
+
+      <div class="restaurant-grid" id="restaurant-grid" aria-live="polite"></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <span>⌕</span>
+        <h3>Nothing on this menu yet.</h3>
+        <p>Try a different search or pick another cuisine.</p>
+        <button class="clear-filters" type="button">Show all kitchens</button>
+      </div>
+    </section>
+
+    <section class="promise-row">
+      <div><span class="promise-number">01</span><h3>Good food, nearby</h3><p>Independent kitchens worth knowing.</p></div>
+      <div><span class="promise-number">02</span><h3>On its way, fast</h3><p>More time enjoying, less time waiting.</p></div>
+      <div><span class="promise-number">03</span><h3>Made for your mood</h3><p>A little treat, or a proper feast.</p></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="wordmark footer-brand" href="#home"><span class="brand-mark">n</span> nibble<span class="wordmark-dot">.</span></a>
+    <span>Good things, from around the corner.</span>
+    <a href="#restaurants">Find something good ↗</a>
+  </footer>
+
+  <button class="cart-trigger" type="button" aria-label="Open your cart">
+    <span aria-hidden="true">♧</span> Your cart <b id="cart-count">0</b>
+  </button>
+
+  <div class="drawer-scrim" id="drawer-scrim" hidden></div>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Your cart" aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <p class="eyebrow muted-eyebrow">YOUR GOOD THINGS</p>
+        <h2>Your cart <span id="drawer-count"></span></h2>
+      </div>
+      <button class="icon-button close-cart" type="button" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-content" id="cart-content"></div>
+    <div class="cart-footer" id="cart-footer"></div>
+  </aside>
+
+  <dialog class="restaurant-dialog" id="restaurant-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close icon-button" type="button" aria-label="Close restaurant menu">×</button>
+    <div id="restaurant-detail"></div>
+  </dialog>
+
+  <dialog class="checkout-dialog" id="checkout-dialog" aria-labelledby="checkout-title">
+    <button class="dialog-close icon-button checkout-close" type="button" aria-label="Close checkout">×</button>
+    <div class="checkout-intro">
+      <p class="eyebrow muted-eyebrow">ALMOST THE GOOD PART</p>
+      <h2 id="checkout-title">Where should<br>we bring it?</h2>
+      <p>Your kitchen is already getting started (well, almost).</p>
+    </div>
+
+    <form id="checkout-form" class="checkout-form">
+      <label>Your name<input name="name" autocomplete="name" required maxlength="70" placeholder="Alex Morgan" /></label>
+      <label>Phone number<input name="phone" type="tel" autocomplete="tel" required pattern="[0-9+() .-]{7,20}" placeholder="(555) 123-4567" /></label>
+      <label>Delivery address<textarea name="address" autocomplete="street-address" required maxlength="180" rows="2" placeholder="Street, apartment, city"></textarea></label>
+      <button class="checkout-submit" type="submit">Place order <span id="checkout-total"></span></button>
+      <p class="checkout-hint">Demo checkout · no payment will be taken</p>
+    </form>
+  </dialog>
+
+  <dialog class="success-dialog" id="success-dialog" aria-labelledby="success-title">
+    <div class="success-mark" aria-hidden="true">✓</div>
+    <p class="eyebrow muted-eyebrow">ORDER CONFIRMED</p>
+    <h2 id="success-title">That's a good<br><em>choice.</em></h2>
+    <p id="success-message">Your order is on its way.</p>
+    <button class="checkout-submit success-done" type="button">Lovely, thanks</button>
+  </dialog>
+</body>
+</html>
